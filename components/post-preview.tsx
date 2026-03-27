@@ -22,25 +22,34 @@ const PostPreview = ({
   slug,
 }: Props) => {
   return (
-    <div>
-      <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
+    <Link
+      as={`/posts/${slug}`}
+      href="/posts/[slug]"
+      className="group block glass-card glass-card-hover gradient-border rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-glow"
+    >
+      <div className="overflow-hidden">
+        <CoverImage title={title} src={coverImage} />
       </div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link
-          as={`/posts/${slug}`}
-          href="/posts/[slug]"
-          className="hover:underline"
-        >
+      <div className="p-6 md:p-8">
+        <div className="mb-3">
+          <span className="badge-purple">
+            <DateFormatter dateString={date} />
+          </span>
+        </div>
+        <h3 className="heading-font text-xl md:text-2xl mb-3 leading-snug font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
           {title}
-        </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <DateFormatter dateString={date} />
+        </h3>
+        <p className="text-sm leading-relaxed mb-5 text-muted line-clamp-3">{excerpt}</p>
+        <div className="flex items-center justify-between">
+          <Avatar name={author.name} picture={author.picture} />
+          <span className="text-purple-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
       </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
-    </div>
+    </Link>
   )
 }
 
