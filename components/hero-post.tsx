@@ -22,30 +22,41 @@ const HeroPost = ({
   slug,
 }: Props) => {
   return (
-    <section>
-      <div className="mb-8 md:mb-16">
-        <CoverImage title={title} src={coverImage} slug={slug} />
-      </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-        <div>
-          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
-            <Link
-              as={`/posts/${slug}`}
-              href="/posts/[slug]"
-              className="hover:underline"
-            >
+    <section className="animate-fade-in-up mb-20 md:mb-28">
+      <Link
+        as={`/posts/${slug}`}
+        href="/posts/[slug]"
+        className="group block glass-card glass-card-hover rounded-4xl overflow-hidden transition-all duration-500"
+      >
+        <div className="md:grid md:grid-cols-2">
+          <div className="overflow-hidden max-h-[300px] md:max-h-none">
+            <CoverImage title={title} src={coverImage} />
+          </div>
+          <div className="p-8 md:p-10 flex flex-col justify-center">
+            <div className="mb-4">
+              <span className="badge-pink">Latest Post</span>
+            </div>
+            <h3 className="heading-font mb-3 text-2xl lg:text-3xl font-bold leading-tight text-white group-hover:text-purple-300 transition-colors duration-300">
               {title}
-            </Link>
-          </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <DateFormatter dateString={date} />
+            </h3>
+            <div className="mb-4">
+              <span className="badge-purple">
+                <DateFormatter dateString={date} />
+              </span>
+            </div>
+            <p className="text-base leading-relaxed mb-6 text-soft line-clamp-3">{excerpt}</p>
+            <div className="flex items-center justify-between">
+              <Avatar name={author.name} picture={author.picture} />
+              <span className="text-purple-400 group-hover:translate-x-2 transition-transform duration-300 text-sm font-medium flex items-center gap-1">
+                Read more
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
-      </div>
+      </Link>
     </section>
   )
 }

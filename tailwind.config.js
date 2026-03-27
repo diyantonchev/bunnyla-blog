@@ -26,8 +26,54 @@ module.exports = {
         '8xl': '6.25rem',
       },
       boxShadow: {
-        sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
-        md: '0 8px 30px rgba(0, 0, 0, 0.12)',
+        sm: '0 5px 10px rgba(0, 0, 0, 0.06)',
+        md: '0 8px 30px rgba(0, 0, 0, 0.08)',
+        glass: '0 8px 32px rgba(0, 0, 0, 0.06)',
+        'glass-hover': '0 16px 48px rgba(0, 0, 0, 0.12)',
+        glow: '0 0 40px rgba(139, 92, 246, 0.15)',
+        'glow-pink': '0 0 40px rgba(236, 72, 153, 0.15)',
+      },
+      borderRadius: {
+        '2xl': '1rem',
+        '3xl': '1.5rem',
+        '4xl': '2rem',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.6s ease-out both',
+        'fade-in-up': 'fadeInUp 0.6s ease-out both',
+        'slide-in': 'slideIn 0.5s ease-out both',
+        'gradient-shift': 'gradientShift 8s ease infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideIn: {
+          '0%': { opacity: '0', transform: 'translateX(-10px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        pulseSoft: {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '1' },
+        },
+      },
+      backgroundSize: {
+        '200%': '200% 200%',
       },
     },
   },

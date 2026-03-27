@@ -1,5 +1,6 @@
 .markdown {
   @apply text-lg leading-relaxed;
+  color: rgba(232, 224, 240, 0.85);
 }
 
 .markdown p,
@@ -10,9 +11,60 @@
 }
 
 .markdown h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply text-3xl mt-12 mb-4 leading-snug font-bold text-white;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-2xl mt-8 mb-4 leading-snug font-semibold text-white;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.markdown a {
+  color: #c4b5fd;
+  text-decoration: underline;
+  text-decoration-color: rgba(139, 92, 246, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.markdown a:hover {
+  text-decoration-color: rgba(139, 92, 246, 0.8);
+}
+
+.markdown strong {
+  @apply font-semibold text-white;
+}
+
+.markdown em {
+  color: rgba(232, 224, 240, 0.7);
+}
+
+.markdown blockquote {
+  border-left: 3px solid rgba(139, 92, 246, 0.4);
+  @apply pl-6 italic;
+  color: rgba(232, 224, 240, 0.6);
+}
+
+.markdown ul {
+  @apply list-disc pl-6;
+}
+
+.markdown ol {
+  @apply list-decimal pl-6;
+}
+
+.markdown li {
+  @apply mb-2;
+}
+
+.markdown hr {
+  @apply my-10 border-0 h-px;
+  background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.3), transparent);
+}
+
+.markdown code {
+  @apply text-sm px-2 py-0.5 rounded;
+  background: rgba(139, 92, 246, 0.1);
+  color: #c4b5fd;
 }

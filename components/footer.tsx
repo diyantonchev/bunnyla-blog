@@ -1,27 +1,22 @@
 import Container from './container'
-import { EXAMPLE_PATH } from '../lib/constants'
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200">
+    <footer className="relative border-t border-white/5">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/5 pointer-events-none" />
       <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
+        <div className="relative py-16 flex flex-col items-center text-center">
+          <span className="text-4xl mb-4 animate-float">🐰</span>
+          <h3 className="heading-font text-lg font-bold text-white mb-2">
+            Bunnyla's Blog
           </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
+          <p className="text-muted text-sm">
+            Made with love for the fluffiest bunny in the world
+          </p>
+          <div className="flex gap-2 mt-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400/50" />
+            <span className="w-1.5 h-1.5 rounded-full bg-pink-400/50" />
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400/50" />
           </div>
         </div>
       </Container>
