@@ -8,6 +8,9 @@ author:
   picture: '/assets/blog/authors/diyan.png'
 ogImage:
   url: '/assets/blog/bunnyla/bunnyla-cover.jpeg'
+tags:
+  - Stories
+  - Adventures
 ---
 
 If there's one thing you need to know about Bunnyla, it's this: she does not do waiting. Not for food, not for cuddles, not for anything. Patience? She's heard of it. She's just not interested. Welcome to the chaotic, foot-thumping, nose-wiggling world of the most impatient bunny alive. ⏰🐰

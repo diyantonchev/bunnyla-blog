@@ -8,6 +8,9 @@ author:
   picture: '/assets/blog/authors/diyan.png'
 ogImage:
   url: '/assets/blog/bunnyla/bunnyla-cover.jpeg'
+tags:
+  - Bunny Life
+  - Stories
 ---
 
 Greetings, dear readers! Today, let's dive into the not-so-glamorous but utterly essential aspect of our beloved bunny friend Bunnyla's life – yes, you guessed it – bunny poops! 🐇💩

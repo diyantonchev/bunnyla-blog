@@ -8,6 +8,9 @@ author:
   picture: '/assets/blog/authors/diyan.png'
 ogImage:
   url: '/assets/blog/bunnyla/bunnyla-garden.png'
+tags:
+  - Bunny Life
+  - Stories
 ---
 
 ## Introduction

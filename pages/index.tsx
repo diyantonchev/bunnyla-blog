@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Container from '../components/container'
 import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
@@ -9,11 +10,20 @@ import Post from '../interfaces/post'
 
 type Props = {
   allPosts: Post[]
+  allTags: string[]
 }
 
-export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+export default function Index({ allPosts, allTags }: Props) {
+  const [activeTag, setActiveTag] = useState<string | null>(null)
+
+  const filtered = activeTag
+    ? allPosts.filter((p) => p.tags?.includes(activeTag))
+    : allPosts
+
+  const heroPost = filtered[0]
+  const morePosts = filtered.slice(1)
+  const allSlugs = allPosts.map((p) => p.slug)
+
   return (
     <>
       <Layout>
@@ -21,7 +31,12 @@ export default function Index({ allPosts }: Props) {
           <title>Bunnyla's Blog</title>
         </Head>
         <Container>
-          <Intro />
+          <Intro
+            slugs={allSlugs}
+            tags={allTags}
+            activeTag={activeTag}
+            onTagChange={setActiveTag}
+          />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -33,6 +48,11 @@ export default function Index({ allPosts }: Props) {
             />
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {filtered.length === 0 && (
+            <p className="text-center text-muted text-lg py-20">
+              No posts found for this tag.
+            </p>
+          )}
         </Container>
       </Layout>
     </>
@@ -47,9 +67,17 @@ export const getStaticProps = async () => {
     'author',
     'coverImage',
     'excerpt',
+    'tags',
   ])
 
+  const tagSet = new Set<string>()
+  allPosts.forEach((p: any) => {
+    if (Array.isArray(p.tags)) {
+      p.tags.forEach((t: string) => tagSet.add(t))
+    }
+  })
+
   return {
-    props: { allPosts },
+    props: { allPosts, allTags: Array.from(tagSet).sort() },
   }
 }
