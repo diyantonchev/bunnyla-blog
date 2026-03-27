@@ -10,14 +10,19 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import type PostType from '../../interfaces/post'
+import ReadingProgress from '../../components/reading-progress'
+import BackToTop from '../../components/back-to-top'
+import ShareButtons from '../../components/share-buttons'
+import { getReadingTime } from '../../lib/readingTime'
 
 type Props = {
   post: PostType
+  readingTime: string
   morePosts: PostType[]
   preview?: boolean
 }
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post, readingTime, morePosts, preview }: Props) {
   const router = useRouter()
   const title = `${post.title} | Bunnyla's blog`
   if (!router.isFallback && !post?.slug) {
@@ -25,6 +30,7 @@ export default function Post({ post, morePosts, preview }: Props) {
   }
   return (
     <Layout preview={preview}>
+      <ReadingProgress />
       <Container>
         <Header />
         {router.isFallback ? (
@@ -41,12 +47,17 @@ export default function Post({ post, morePosts, preview }: Props) {
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
+                readingTime={readingTime}
               />
               <PostBody content={post.content} />
+              <div className="max-w-2xl mx-auto mt-12 pt-8 border-t border-white/5">
+                <ShareButtons title={post.title} slug={post.slug} />
+              </div>
             </article>
           </>
         )}
       </Container>
+      <BackToTop />
     </Layout>
   )
 }
@@ -68,6 +79,7 @@ export async function getStaticProps({ params }: Params) {
     'coverImage',
   ])
   const content = await markdownToHtml(post.content || '')
+  const readingTime = getReadingTime(post.content || '')
 
   return {
     props: {
@@ -75,6 +87,7 @@ export async function getStaticProps({ params }: Params) {
         ...post,
         content,
       },
+      readingTime,
     },
   }
 }

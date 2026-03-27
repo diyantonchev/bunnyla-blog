@@ -45,6 +45,7 @@ module.exports = {
         'gradient-shift': 'gradientShift 8s ease infinite',
         'float': 'float 6s ease-in-out infinite',
         'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+        'emoji-fall': 'emojiFall 3s ease-in forwards',
       },
       keyframes: {
         fadeIn: {
@@ -70,6 +71,10 @@ module.exports = {
         pulseSoft: {
           '0%, 100%': { opacity: '0.6' },
           '50%': { opacity: '1' },
+        },
+        emojiFall: {
+          '0%': { transform: 'translateY(-20px) rotate(0deg)', opacity: '1' },
+          '100%': { transform: 'translateY(100vh) rotate(360deg)', opacity: '0' },
         },
       },
       backgroundSize: {

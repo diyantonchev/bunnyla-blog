@@ -8,6 +8,9 @@ author:
   picture: '/assets/blog/authors/diyan.png'
 ogImage:
   url: '/assets/blog/bunnyla/bunnyla-garden.png'
+tags:
+  - Stories
+  - Adventures
 ---
 
 Once upon a time in a cozy little burrow, there lived a fluffy and adventurous rabbit named Bunnyla. With her snow-white fur and twitching pink nose, Bunnyla was the heart and soul of her owner's world.

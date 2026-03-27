@@ -8,6 +8,9 @@ author:
   picture: '/assets/blog/authors/diyan.png'
 ogImage:
   url: '/assets/blog/bunnyla/bunnyla-cover.jpeg'
+tags:
+  - Bunny Life
+  - Adventures
 ---
 
 Dive into the whimsical world of Bunnyla, our beloved bunny who prefers the sweet juiciness of fruits over the crunchy goodness of vegetables. 🍇🥦
